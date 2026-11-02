@@ -1,0 +1,526 @@
+export type Climate = "early" | "middle" | "late";
+export type Zone = "yard" | "orchard" | "range";
+export type Kind = "tree" | "berry" | "herb" | "wildflower" | "shrub" | "crop";
+
+export type Plant = {
+  id: string;
+  name: string;
+  latin: string;
+  kind: Kind;
+  zone: Zone;
+  nectar: 1 | 2 | 3;
+  pollen: 1 | 2 | 3;
+  /** Bloom months in a middle temperate year, 1–12. */
+  months: number[];
+  starter: boolean;
+  note: string;
+};
+
+export const ZONES: { id: Zone; title: string; range: string; body: string }[] = [
+  {
+    id: "yard",
+    title: "At the hives",
+    range: "The first 15 metres",
+    body: "Clover underfoot, herbs at the edges, and a water basin off to the side. Keep tall trees from shading the entrance in the morning.",
+  },
+  {
+    id: "orchard",
+    title: "Orchard belt",
+    range: "About 15–100 metres",
+    body: "Fruit trees and berry bushes live here, beside the apiary but not in the flight path of the landing board. This is the crop you share with the bees.",
+  },
+  {
+    id: "range",
+    title: "Flying range",
+    range: "Out to about 3 kilometres",
+    body: "Most honey is made beyond the fence. Willow, maple, linden, and a fall meadow of goldenrod and aster matter more than any flower bed.",
+  },
+];
+
+export const KIND_LABEL: Record<Kind, string> = {
+  tree: "Tree",
+  berry: "Berry bush",
+  herb: "Herb",
+  wildflower: "Meadow",
+  shrub: "Shrub",
+  crop: "Sown crop",
+};
+
+export const ZONE_LABEL: Record<Zone, string> = {
+  yard: "At the hives",
+  orchard: "Orchard belt",
+  range: "Flying range",
+};
+
+export const PLANTS: Plant[] = [
+  {
+    id: "crocus",
+    name: "Crocus",
+    latin: "Crocus",
+    kind: "herb",
+    zone: "yard",
+    nectar: 1,
+    pollen: 2,
+    months: [2, 3],
+    starter: true,
+    note: "The first pollen on a warm late-winter afternoon. Plant drifts, not a lonely clump.",
+  },
+  {
+    id: "dandelion",
+    name: "Dandelion",
+    latin: "Taraxacum",
+    kind: "wildflower",
+    zone: "yard",
+    nectar: 2,
+    pollen: 3,
+    months: [3, 4, 5],
+    starter: false,
+    note: "Serious spring food. The honey granulates quickly — fine for the bees, stubborn in a jar.",
+  },
+  {
+    id: "clover",
+    name: "White clover",
+    latin: "Trifolium repens",
+    kind: "herb",
+    zone: "yard",
+    nectar: 3,
+    pollen: 2,
+    months: [5, 6, 7, 8, 9],
+    starter: true,
+    note: "Let the lawn flower. A clover sward under and around the hives feeds the whole summer.",
+  },
+  {
+    id: "borage",
+    name: "Borage",
+    latin: "Borago officinalis",
+    kind: "herb",
+    zone: "yard",
+    nectar: 3,
+    pollen: 2,
+    months: [6, 7, 8, 9],
+    starter: true,
+    note: "Refills itself if you let it seed. One of the few garden plants that actually moves the honey crop.",
+  },
+  {
+    id: "thyme",
+    name: "Thyme",
+    latin: "Thymus vulgaris",
+    kind: "herb",
+    zone: "yard",
+    nectar: 2,
+    pollen: 1,
+    months: [6, 7],
+    starter: true,
+    note: "A low hedge along the stand. Bees work it hard on hot days, and it never towers over the entrance.",
+  },
+  {
+    id: "lavender",
+    name: "Lavender",
+    latin: "Lavandula",
+    kind: "herb",
+    zone: "yard",
+    nectar: 2,
+    pollen: 1,
+    months: [6, 7, 8],
+    starter: false,
+    note: "Pretty and useful, not a honey crop by itself. Plant it where you walk, downwind of the landing board.",
+  },
+  {
+    id: "beebalm",
+    name: "Bee balm",
+    latin: "Monarda",
+    kind: "herb",
+    zone: "yard",
+    nectar: 2,
+    pollen: 1,
+    months: [7, 8],
+    starter: false,
+    note: "A July flower, which is exactly when many yards go quiet. Give it moisture or it mildews and quits.",
+  },
+  {
+    id: "hyssop",
+    name: "Anise hyssop",
+    latin: "Agastache foeniculum",
+    kind: "herb",
+    zone: "yard",
+    nectar: 3,
+    pollen: 1,
+    months: [7, 8, 9],
+    starter: true,
+    note: "Long bloom into early fall. Bees prefer it to most ornamental perennials.",
+  },
+  {
+    id: "sedum",
+    name: "Autumn sedum",
+    latin: "Hylotelephium",
+    kind: "herb",
+    zone: "yard",
+    nectar: 2,
+    pollen: 1,
+    months: [9, 10],
+    starter: true,
+    note: "Late nectar for winter bees. A row against the fence still flowers after the garden looks finished.",
+  },
+  {
+    id: "honeyberry",
+    name: "Honeyberry",
+    latin: "Lonicera caerulea",
+    kind: "berry",
+    zone: "orchard",
+    nectar: 2,
+    pollen: 2,
+    months: [3, 4],
+    starter: true,
+    note: "One of the earliest woody blooms, often before the apples wake. Two varieties fruit better.",
+  },
+  {
+    id: "plum",
+    name: "Plum",
+    latin: "Prunus domestica",
+    kind: "tree",
+    zone: "orchard",
+    nectar: 3,
+    pollen: 2,
+    months: [3, 4],
+    starter: true,
+    note: "Early and generous. Plant it to the side of the hives so the canopy does not shade the entrance.",
+  },
+  {
+    id: "peach",
+    name: "Peach",
+    latin: "Prunus persica",
+    kind: "tree",
+    zone: "orchard",
+    nectar: 2,
+    pollen: 2,
+    months: [3, 4],
+    starter: false,
+    note: "Blooms early and risks frost. Where peaches thrive, the bees treat the blossom as a serious flow.",
+  },
+  {
+    id: "cherry",
+    name: "Cherry",
+    latin: "Prunus avium",
+    kind: "tree",
+    zone: "orchard",
+    nectar: 3,
+    pollen: 2,
+    months: [4],
+    starter: true,
+    note: "A short, intense bloom. Sweet cherries often need a partner tree; sour cherries set more reliably.",
+  },
+  {
+    id: "pear",
+    name: "Pear",
+    latin: "Pyrus",
+    kind: "tree",
+    zone: "orchard",
+    nectar: 2,
+    pollen: 2,
+    months: [4],
+    starter: false,
+    note: "Pear nectar is thin. Bees still work the pollen, and the fruit needs them. Do not spray open bloom.",
+  },
+  {
+    id: "apple",
+    name: "Apple",
+    latin: "Malus domestica",
+    kind: "tree",
+    zone: "orchard",
+    nectar: 3,
+    pollen: 3,
+    months: [4, 5],
+    starter: true,
+    note: "Plant two varieties that bloom together. Dwarf or semi-dwarf trees stay out of the bees' flight line.",
+  },
+  {
+    id: "crabapple",
+    name: "Crabapple",
+    latin: "Malus",
+    kind: "tree",
+    zone: "orchard",
+    nectar: 3,
+    pollen: 3,
+    months: [4, 5],
+    starter: true,
+    note: "A pollination partner for eating apples and a fine nectar source in its own right.",
+  },
+  {
+    id: "serviceberry",
+    name: "Serviceberry",
+    latin: "Amelanchier",
+    kind: "tree",
+    zone: "orchard",
+    nectar: 2,
+    pollen: 2,
+    months: [4],
+    starter: false,
+    note: "Blooms just before the apples. Birds take the fruit; bees take the flower.",
+  },
+  {
+    id: "blueberry",
+    name: "Blueberry",
+    latin: "Vaccinium",
+    kind: "berry",
+    zone: "orchard",
+    nectar: 2,
+    pollen: 2,
+    months: [4, 5],
+    starter: true,
+    note: "Needs acid soil. Honey bees visit; bumblebees pollinate the bells more thoroughly. Still plant the row.",
+  },
+  {
+    id: "currant",
+    name: "Black currant",
+    latin: "Ribes nigrum",
+    kind: "berry",
+    zone: "orchard",
+    nectar: 3,
+    pollen: 2,
+    months: [4, 5],
+    starter: true,
+    note: "A quiet, high-value bush for the near belt. Flowers early and does not ask for spraying.",
+  },
+  {
+    id: "gooseberry",
+    name: "Gooseberry",
+    latin: "Ribes uva-crispa",
+    kind: "berry",
+    zone: "orchard",
+    nectar: 2,
+    pollen: 1,
+    months: [4, 5],
+    starter: false,
+    note: "Blooms with the currants. Tuck it on the north side of the orchard so it does not shade the hives.",
+  },
+  {
+    id: "raspberry",
+    name: "Raspberry",
+    latin: "Rubus idaeus",
+    kind: "berry",
+    zone: "orchard",
+    nectar: 3,
+    pollen: 2,
+    months: [5, 6, 7],
+    starter: true,
+    note: "Summer canes cover late spring. Add an everbearing row if July and August look empty — those canes flower again.",
+  },
+  {
+    id: "blackberry",
+    name: "Blackberry",
+    latin: "Rubus",
+    kind: "berry",
+    zone: "orchard",
+    nectar: 3,
+    pollen: 2,
+    months: [5, 6, 7],
+    starter: true,
+    note: "A fenceline of bramble is both a windbreak and a flow. Wild patches inside flight range count too.",
+  },
+  {
+    id: "elder",
+    name: "Elderberry",
+    latin: "Sambucus",
+    kind: "berry",
+    zone: "orchard",
+    nectar: 2,
+    pollen: 2,
+    months: [6],
+    starter: false,
+    note: "A large shrub for the outer edge of the orchard belt. Bloom bridges raspberry and the linden flow.",
+  },
+  {
+    id: "willow",
+    name: "Pussy willow",
+    latin: "Salix",
+    kind: "tree",
+    zone: "range",
+    nectar: 3,
+    pollen: 3,
+    months: [3, 4],
+    starter: true,
+    note: "The colony's spring starter. A willow hedge within a mile is worth more than a flower bed.",
+  },
+  {
+    id: "maple",
+    name: "Red maple",
+    latin: "Acer rubrum",
+    kind: "tree",
+    zone: "range",
+    nectar: 2,
+    pollen: 3,
+    months: [3, 4],
+    starter: false,
+    note: "Early pollen in the woods around the apiary. You rarely plant it; you notice it and protect it.",
+  },
+  {
+    id: "locust",
+    name: "Black locust",
+    latin: "Robinia pseudoacacia",
+    kind: "tree",
+    zone: "range",
+    nectar: 3,
+    pollen: 1,
+    months: [5, 6],
+    starter: false,
+    note: "A short, famous flow. A week of bloom in the neighborhood can fill a super.",
+  },
+  {
+    id: "poplar",
+    name: "Tulip poplar",
+    latin: "Liriodendron tulipifera",
+    kind: "tree",
+    zone: "range",
+    nectar: 3,
+    pollen: 2,
+    months: [5, 6],
+    starter: false,
+    note: "Where it grows, it is a main honey tree. Dark, strong honey. Leave the big ones standing.",
+  },
+  {
+    id: "linden",
+    name: "Linden",
+    latin: "Tilia",
+    kind: "tree",
+    zone: "range",
+    nectar: 3,
+    pollen: 2,
+    months: [6, 7],
+    starter: true,
+    note: "The great early-summer flow, also called basswood. One tree in flight range feeds many colonies.",
+  },
+  {
+    id: "sumac",
+    name: "Sumac",
+    latin: "Rhus",
+    kind: "shrub",
+    zone: "range",
+    nectar: 2,
+    pollen: 1,
+    months: [6, 7],
+    starter: false,
+    note: "Roadsides and field edges. Bees work the pale plumes when the clover pauses.",
+  },
+  {
+    id: "sweetclover",
+    name: "Sweet clover",
+    latin: "Melilotus",
+    kind: "wildflower",
+    zone: "range",
+    nectar: 3,
+    pollen: 2,
+    months: [6, 7, 8],
+    starter: false,
+    note: "A classic honey plant of roadsides and unmown ground. Do not confuse it with the white clover at your feet.",
+  },
+  {
+    id: "sunflower",
+    name: "Sunflower",
+    latin: "Helianthus",
+    kind: "crop",
+    zone: "range",
+    nectar: 2,
+    pollen: 3,
+    months: [7, 8, 9],
+    starter: false,
+    note: "Pollen more than nectar, and a good late-summer marker. A strip along the orchard still helps.",
+  },
+  {
+    id: "buckwheat",
+    name: "Buckwheat",
+    latin: "Fagopyrum esculentum",
+    kind: "crop",
+    zone: "range",
+    nectar: 3,
+    pollen: 1,
+    months: [7, 8],
+    starter: true,
+    note: "Sow it to plug a summer dearth. Bloom lasts about three weeks, so stagger the sowings. The honey is dark and loud.",
+  },
+  {
+    id: "goldenrod",
+    name: "Goldenrod",
+    latin: "Solidago",
+    kind: "wildflower",
+    zone: "range",
+    nectar: 3,
+    pollen: 3,
+    months: [8, 9, 10],
+    starter: true,
+    note: "The fall honey crop in much of the temperate world. Do not mow the meadow in August.",
+  },
+  {
+    id: "aster",
+    name: "Aster",
+    latin: "Symphyotrichum",
+    kind: "wildflower",
+    zone: "range",
+    nectar: 3,
+    pollen: 2,
+    months: [8, 9, 10],
+    starter: true,
+    note: "Pairs with goldenrod and keeps going after it. New England aster is the one to plant if the meadow is thin.",
+  },
+  {
+    id: "joepye",
+    name: "Joe-Pye weed",
+    latin: "Eutrochium",
+    kind: "wildflower",
+    zone: "range",
+    nectar: 2,
+    pollen: 1,
+    months: [8, 9],
+    starter: false,
+    note: "A tall ditch plant for damp ground at the edge of flight. Bees cover it in late summer.",
+  },
+];
+
+export const MONTHS = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
+export const MONTH_SHORT = ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"];
+
+const SHIFT: Record<Climate, number> = { early: -1, middle: 0, late: 1 };
+
+export function bloomMonths(plant: Plant, climate: Climate): number[] {
+  const shift = SHIFT[climate];
+  const set = new Set<number>();
+  for (const month of plant.months) {
+    const next = month + shift;
+    if (next >= 1 && next <= 12) set.add(next);
+  }
+  return [...set].sort((a, b) => a - b);
+}
+
+export function plantsInMonth(month: number, climate: Climate, zone: Zone | "all"): Plant[] {
+  return PLANTS.filter((plant) => {
+    if (zone !== "all" && plant.zone !== zone) return false;
+    return bloomMonths(plant, climate).includes(month);
+  });
+}
+
+/** March through October — the working forage year. */
+export const FORAGE_MONTHS = [3, 4, 5, 6, 7, 8, 9, 10];
+
+export function gapMonths(ids: string[], climate: Climate): number[] {
+  const chosen = PLANTS.filter((plant) => ids.includes(plant.id));
+  return FORAGE_MONTHS.filter(
+    (month) => !chosen.some((plant) => bloomMonths(plant, climate).includes(month)),
+  );
+}
+
+export function starterIds(): string[] {
+  return PLANTS.filter((plant) => plant.starter).map((plant) => plant.id);
+}

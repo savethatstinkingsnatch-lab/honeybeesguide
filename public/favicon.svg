@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="The Apiary">
+  <rect width="32" height="32" rx="7" fill="#F6EFE2"/>
+  <path d="M16 3.6 26.2 9.5v11L16 26.4 5.8 20.5v-11Z" fill="#C47B1E" stroke="#3D2B1F" stroke-width="1.6" stroke-linejoin="round"/>
+  <ellipse cx="16" cy="15.6" rx="3.15" ry="4.35" fill="#2A2218"/>
+  <rect x="12.9" y="14.15" width="6.2" height="1.35" rx="0.4" fill="#F6EFE2"/>
+  <ellipse cx="11.15" cy="12.7" rx="3.15" ry="1.7" fill="#F6EFE2" stroke="#3D2B1F" stroke-width="0.85" transform="rotate(-32 11.15 12.7)"/>
+  <ellipse cx="20.85" cy="12.7" rx="3.15" ry="1.7" fill="#F6EFE2" stroke="#3D2B1F" stroke-width="0.85" transform="rotate(32 20.85 12.7)"/>
+</svg>

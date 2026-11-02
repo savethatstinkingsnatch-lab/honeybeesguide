@@ -1,0 +1,91 @@
+@import "tailwindcss";
+@import "@fontsource/fraunces/400.css";
+@import "@fontsource/fraunces/600.css";
+@import "@fontsource/fraunces/700.css";
+@import "@fontsource/newsreader/400.css";
+@import "@fontsource/newsreader/400-italic.css";
+@import "@fontsource/newsreader/600.css";
+
+@theme {
+  --color-parchment: #f3ead8;
+  --color-page: #fffaf2;
+  --color-ink: #2a2218;
+  --color-muted: #645647;
+  --color-line: #e0d0b6;
+  --color-honey: #c47b1e;
+  --color-honey-deep: #7a4a0c;
+  --color-honey-soft: #f6e6c6;
+  --color-bark: #3d2b1f;
+  --color-comb: #efe0c2;
+  --font-display: "Fraunces", "Iowan Old Style", Palatino, serif;
+  --font-body: "Newsreader", "Iowan Old Style", Palatino, serif;
+  --radius-page: 1rem;
+}
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-bark);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-size: 1.0625rem;
+    line-height: 1.55;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+    line-height: 1.15;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@layer components {
+  .drop::first-letter {
+    font-family: var(--font-display);
+    float: left;
+    padding-right: 0.45rem;
+    font-size: 3.25rem;
+    font-weight: 600;
+    line-height: 0.8;
+    color: var(--color-honey-deep);
+  }
+
+  .bloom-scroll {
+    min-width: 40rem;
+  }
+
+  .bloom-grid {
+    display: grid;
+    grid-template-columns: 9rem repeat(12, minmax(0, 1fr));
+    gap: 0.25rem;
+    align-items: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

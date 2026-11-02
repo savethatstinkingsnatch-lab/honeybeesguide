@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "The Apiary",
+      "hasCanvas": false,
+      "bodyTextLen": 1417,
+      "bodyTextHash": "ea68c40c7cffff00409ff0ed9f2f0533d0c6a14ee859ca12761310b0dc72a978",
+      "bodyTextPrefix": "The Apiary Blue and the Awesome Dudes — Contents I The colony II",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "The Apiary",
+      "hasCanvas": false,
+      "bodyTextLen": 1075,
+      "bodyTextHash": "cd99f672c98aff00264c87d9cf2ce0dbdc01d7f3c371d5c47ba28a2d5f633f8d",
+      "bodyTextPrefix": "The Apiary — · Contents A FIELD BOOK The Apiary For keeping hone",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}
