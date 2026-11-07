@@ -24,8 +24,8 @@ export function Cover({ onChapter }: { onChapter: (id: ChapterId) => void }) {
 
   return (
     <div>
-      <Kicker>A field book</Kicker>
-      <h1 className="mt-3 font-display text-5xl font-semibold sm:text-6xl">The Apiary</h1>
+      <Kicker>The Education Revolution · Volume 4</Kicker>
+      <h1 className="mt-3 font-display text-5xl font-semibold sm:text-6xl">Volume 4: Honeybees</h1>
       <p className="mt-4 font-display text-2xl text-honey-deep">For keeping honey bees</p>
       <p className="mt-2 font-display text-lg">Blue and the Awesome Dudes</p>
       <p className="drop mt-6">

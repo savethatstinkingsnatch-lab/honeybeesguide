@@ -3,7 +3,7 @@ import { AuthProvider } from "@/lib/auth/provider";
 import { PreviewHostBridge } from "@/components/preview-host-bridge";
 import appCss from "../styles.css?url";
 
-const APP_NAME = "The Apiary";
+const APP_NAME = "Volume 4: Honeybees (The Education Revolution)";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -14,7 +14,7 @@ export const Route = createRootRoute({
       {
         name: "description",
         content:
-          "The Apiary by Blue and the Awesome Dudes. A field book for keeping honey bees.",
+          "Volume 4 of The Education Revolution, by Blue and the Awesome Dudes. A field book for keeping honey bees.",
       },
       { name: "theme-color", content: "#3d2b1f" },
     ],

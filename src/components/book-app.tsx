@@ -89,7 +89,7 @@ export function BookApp({
   return (
     <div className="min-h-screen bg-bark lg:grid lg:grid-cols-[16rem_minmax(0,1fr)]">
       <aside className="sticky top-0 hidden h-screen flex-col bg-bark px-4 py-8 text-page lg:flex">
-        <p className="px-3 font-display text-3xl font-semibold">The Apiary</p>
+        <p className="px-3 font-display text-3xl font-semibold">Volume 4: Honeybees</p>
         <p className="mt-1 px-3 text-sm text-honey-soft">Blue and the Awesome Dudes</p>
         <div className="mt-8 overflow-y-auto">
           <Contents chapter={chapter} onPick={pick} />
@@ -107,7 +107,7 @@ export function BookApp({
             <Menu aria-hidden="true" />
           </button>
           <div>
-            <p className="font-display text-xl leading-none">The Apiary</p>
+            <p className="font-display text-xl leading-none">Volume 4: Honeybees</p>
             <p className="text-sm text-honey-soft">
               {current.numeral} · {current.label}
             </p>
@@ -162,7 +162,7 @@ export function BookApp({
             </div>
           </article>
           <p className="mt-5 px-1 text-sm leading-relaxed text-honey-soft">
-            The Apiary, by Blue and the Awesome Dudes. Educational field notes for a temperate apiary — not veterinary advice. Follow local law, treatment labels, and your inspector. Never spray fruit trees or berries while they are in bloom.
+            Volume 4: Honeybees (The Education Revolution), by Blue and the Awesome Dudes. Educational field notes for a temperate apiary — not veterinary advice. Follow local law, treatment labels, and your inspector. Never spray fruit trees or berries while they are in bloom.
           </p>
         </main>
       </div>
